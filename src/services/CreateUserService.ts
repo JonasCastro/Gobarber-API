@@ -25,10 +25,8 @@ class CreateUserService {
       email,
       password: hashsedPassword,
     });
-    console.log(user);
 
     const saveUser = await userRepository.save(user);
-    console.log(saveUser);
     return saveUser;
   }
 }
