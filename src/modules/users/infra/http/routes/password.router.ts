@@ -1,26 +1,14 @@
 import { Router } from 'express';
-import multer from 'multer';
 
-import uploadConfig from '@config/upload';
-
-import UsersController from '../controllers/UsersController';
-import UserAvatarController from '../controllers/UserAvatarController';
-
-import ensureAuthenticated from '../middlewares/ensureAuthenticated';
+import ForgotPasswordController from '../controllers/ForgotPasswordController';
+import ResetPasswordController from '../controllers/ResetPasswordController';
 
 const passwordRouter = Router();
-const upload = multer(uploadConfig);
 
-const usersController = new UsersController();
-const userAvatarController = new UserAvatarController();
+const forgotPasswordController = new ForgotPasswordController();
+const resetPasswordController = new ResetPasswordController();
 
-passwordRouter.post('/', usersController.create);
-
-passwordRouter.patch(
-  '/avatar',
-  ensureAuthenticated,
-  upload.single('avatar'),
-  userAvatarController.update,
-);
+passwordRouter.post('/forgot', forgotPasswordController.create);
+passwordRouter.post('/reset', resetPasswordController.create);
 
 export default passwordRouter;
