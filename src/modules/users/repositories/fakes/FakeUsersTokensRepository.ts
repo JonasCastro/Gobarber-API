@@ -11,7 +11,7 @@ class FakeUsersTokensRepository implements IUserTokensRepository {
 
     Object.assign(userToken, {
       id: uuid(),
-      TOKEN: uuid(),
+      token: uuid(),
       user_id,
     });
 
