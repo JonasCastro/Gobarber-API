@@ -9,5 +9,5 @@ export default interface ISendMailDTO {
   to: IMailContact;
   from?: IMailContact;
   subject: string;
-  templateDate: IParseMailTemplateDTO;
+  templateData: IParseMailTemplateDTO;
 }
