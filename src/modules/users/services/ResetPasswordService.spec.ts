@@ -14,7 +14,7 @@ let fakeHashProvider: FakeHashProvider;
 let resetPassword: ResetPasswordService;
 
 describe('ResetPassword', () => {
-  beforeAll(() => {
+  beforeEach(() => {
     fakeUsersRepository = new FakeUsersRepository();
     fakeUsersTokenRepository = new FakeUsersTokenRepository();
     fakeHashProvider = new FakeHashProvider();
