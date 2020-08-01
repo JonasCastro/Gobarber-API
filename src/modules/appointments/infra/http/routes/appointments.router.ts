@@ -16,20 +16,13 @@ appointmentsRouter.use(esureAuthenticated);
 appointmentsRouter.post(
   '/',
   celebrate({
-    [Segments.PARAMS]: {
+    [Segments.BODY]: {
       provider_id: Joi.string().uuid().required(),
+      date: Joi.date().required(),
     },
   }),
   appointmentsController.create,
 );
-appointmentsRouter.get(
-  '/me',
-  celebrate({
-    [Segments.PARAMS]: {
-      provider_id: Joi.string().uuid().required(),
-    },
-  }),
-  providerAppointmentsController.index,
-);
+appointmentsRouter.get('/me', providerAppointmentsController.index);
 
 export default appointmentsRouter;
