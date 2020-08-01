@@ -12,7 +12,7 @@ interface IUploadConfig {
     storage: StorageEngine;
   };
   config: {
-    disk: string;
+    disk: {};
     aws: {
       bucket: string;
     };
@@ -20,7 +20,7 @@ interface IUploadConfig {
 }
 
 export default {
-  driver: process.env.STORAGE_DRIVER,
+  driver: process.env.STORAGE_DRIVER || 'disk',
 
   tmpFolder,
   uploadsFolder: path.resolve(tmpFolder, 'uploads'),
